@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Contrcats\ProjectManagement.Contracts.csproj" />
+    <ProjectReference Include="..\ProjectManagement.Entities\ProjectManagement.Entities.csproj" />
+    <ProjectReference Include="..\ProjectManagement.LoggerService\ProjectManagement.LoggerService.csproj" />
+    <ProjectReference Include="..\ProjectManagement.Repository\ProjectManagement.Repository.csproj" />
+    <ProjectReference Include="..\ProjectManagement.Service.Contracts\ProjectManagement.Service.Contracts.csproj" />
+    <ProjectReference Include="..\ProjectManagement.Service\ProjectManagement.Service.csproj" />
+  </ItemGroup>
+
+</Project>
