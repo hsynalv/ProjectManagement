@@ -18,9 +18,14 @@
     <ProjectReference Include="..\Contrcats\ProjectManagement.Contracts.csproj" />
     <ProjectReference Include="..\ProjectManagement.Entities\ProjectManagement.Entities.csproj" />
     <ProjectReference Include="..\ProjectManagement.LoggerService\ProjectManagement.LoggerService.csproj" />
+    <ProjectReference Include="..\ProjectManagement.Presentation\ProjectManagement.Presentation.csproj" />
     <ProjectReference Include="..\ProjectManagement.Repository\ProjectManagement.Repository.csproj" />
     <ProjectReference Include="..\ProjectManagement.Service.Contracts\ProjectManagement.Service.Contracts.csproj" />
     <ProjectReference Include="..\ProjectManagement.Service\ProjectManagement.Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>

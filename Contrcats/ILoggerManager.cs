@@ -1,10 +1,9 @@
-﻿namespace ProjectManagement.Contracts
+﻿namespace ProjectManagement.Contracts;
+
+public interface ILoggerManager
 {
-    public interface ILoggerManager
-    {
-        void LogInfo(string message);
-        void LogWarning(string message);
-        void LogError(string message);
-        void LogDebug(string message);
-    }
+    void LogInfo(string message);
+    void LogWarning(string message);
+    void LogError(string message);
+    void LogDebug(string message);
 }

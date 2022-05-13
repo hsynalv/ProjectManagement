@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace ProjectManagement.Service.Contracts;
 
-namespace ProjectManagement.Service.Contracts
+public interface IServiceManager
 {
-    public interface IServiceManager
-    {
-        IProjectService ProjectService { get; }
-    }
+    IProjectService ProjectService { get; }
+    IEmployeeService EmployeeService { get; }
 }

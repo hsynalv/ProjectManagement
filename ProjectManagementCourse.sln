@@ -11,11 +11,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectManagement.Contracts
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectManagement.LoggerService", "ProjectManagement.LoggerService\ProjectManagement.LoggerService.csproj", "{48780703-5C9A-45E8-9778-578588D5BFA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagement.Repository", "ProjectManagement.Repository\ProjectManagement.Repository.csproj", "{6AF0457F-15F9-4909-B3B7-FDA090BF8937}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectManagement.Repository", "ProjectManagement.Repository\ProjectManagement.Repository.csproj", "{6AF0457F-15F9-4909-B3B7-FDA090BF8937}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagement.Service", "ProjectManagement.Service\ProjectManagement.Service.csproj", "{0E4390D0-B872-459E-A32D-EA429FA566D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectManagement.Service", "ProjectManagement.Service\ProjectManagement.Service.csproj", "{0E4390D0-B872-459E-A32D-EA429FA566D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagement.Service.Contracts", "ProjectManagement.Service.Contracts\ProjectManagement.Service.Contracts.csproj", "{ED7CAABE-9774-4B8C-8DE1-8586171B9E01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectManagement.Service.Contracts", "ProjectManagement.Service.Contracts\ProjectManagement.Service.Contracts.csproj", "{ED7CAABE-9774-4B8C-8DE1-8586171B9E01}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectManagement.Presentation", "ProjectManagement.Presentation\ProjectManagement.Presentation.csproj", "{64C08530-0FB3-458A-854C-721E4EFC1C74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagement.Shared", "ProjectManagement.Shared\ProjectManagement.Shared.csproj", "{73CA84A8-F5A9-46AE-A7F7-68273F6029B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,14 @@ Global
 		{ED7CAABE-9774-4B8C-8DE1-8586171B9E01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED7CAABE-9774-4B8C-8DE1-8586171B9E01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED7CAABE-9774-4B8C-8DE1-8586171B9E01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64C08530-0FB3-458A-854C-721E4EFC1C74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64C08530-0FB3-458A-854C-721E4EFC1C74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64C08530-0FB3-458A-854C-721E4EFC1C74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64C08530-0FB3-458A-854C-721E4EFC1C74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73CA84A8-F5A9-46AE-A7F7-68273F6029B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73CA84A8-F5A9-46AE-A7F7-68273F6029B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73CA84A8-F5A9-46AE-A7F7-68273F6029B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73CA84A8-F5A9-46AE-A7F7-68273F6029B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

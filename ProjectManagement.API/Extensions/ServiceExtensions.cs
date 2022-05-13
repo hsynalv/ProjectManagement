@@ -6,48 +6,44 @@ using ProjectManagement.Repository;
 using ProjectManagement.Service;
 using ProjectManagement.Service.Contracts;
 
-namespace ProjectManagement.API.Extensions
+namespace ProjectManagement.API.Extensions;
+
+public static class ServiceExtensions
 {
-    public static class ServiceExtensions
+    public static void ConfigureCors(this IServiceCollection services)
     {
-        public static void ConfigureCors(this IServiceCollection services)
+        services.AddCors(opt =>
         {
-            services.AddCors(opt =>
+            opt.AddPolicy("CorsPolicy", builder =>
             {
-                opt.AddPolicy("CorsPolicy", builder =>
-                {
-                    builder.AllowAnyOrigin()
+                builder.AllowAnyOrigin()
                     .AllowAnyMethod()
                     .AllowAnyHeader();
-                });
             });
-        }
+        });
+    }
 
-        public static void ConfigureLoggerManager(this IServiceCollection services)
+    public static void ConfigureLoggerManager(this IServiceCollection services)
+    {
+        services.AddSingleton<ILoggerManager, LoggerManager>();
+    }
+
+    public static void ConfigureSqlContext(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddDbContext<RepositoryContext>(opt =>
         {
-            services.AddSingleton<ILoggerManager, LoggerManager>();
-        }
+            opt.UseSqlServer(configuration.GetConnectionString("SqlConnection"),
+                project => { project.MigrationsAssembly("ProjectManagement.Repository"); });
+        });
+    }
 
-        public static void ConfigureSqlContext(this IServiceCollection services, IConfiguration configuration)
-        {
-            services.AddDbContext<RepositoryContext>(opt =>
-            {
-                opt.UseSqlServer(configuration.GetConnectionString("SqlConnection"), project =>
-                {
-                    project.MigrationsAssembly("ProjectManagement.Repository");
-                });
-            });
-        }
+    public static void ConfigureUnitOfWork(this IServiceCollection services)
+    {
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
+    }
 
-        public static void ConfigureUnitOfWork(this IServiceCollection services)
-        {
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-
-        }
-
-        public static void ConfigureServiceManager(this IServiceCollection services)
-        {
-            services.AddScoped<IServiceManager,ServiceManager>();
-        }
+    public static void ConfigureServiceManager(this IServiceCollection services)
+    {
+        services.AddScoped<IServiceManager, ServiceManager>();
     }
 }

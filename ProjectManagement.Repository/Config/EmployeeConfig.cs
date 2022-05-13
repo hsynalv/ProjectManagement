@@ -14,11 +14,11 @@ public class EmployeeConfig : IEntityTypeConfiguration<Employee>
 
         builder.HasOne(x => x.Project)
             .WithMany(p => p.Employees)
-            .HasForeignKey(x => x.ProjectId); 
+            .HasForeignKey(x => x.ProjectId);
 
 
         builder.HasData(
-            new Employee()
+            new Employee
             {
                 Id = Guid.NewGuid(),
                 ProjectId = new Guid("b67e3d43-23ef-444f-a022-5294810a5428"),
@@ -27,8 +27,6 @@ public class EmployeeConfig : IEntityTypeConfiguration<Employee>
                 Age = 30,
                 Position = "Senior Developer"
             }
-
         );
     }
-
 }

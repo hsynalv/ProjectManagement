@@ -1,12 +1,11 @@
 ﻿using ProjectManagement.Contracts.Repository;
 
-namespace ProjectManagement.Contracts.UnitOFWork
-{
-    public interface IUnitOfWork
-    {
-        IProjectRepository Project { get; }
-        IEmployeeRepository Employee { get; }
+namespace ProjectManagement.Contracts.UnitOFWork;
 
-        void Save();
-    }
+public interface IUnitOfWork
+{
+    IProjectRepository Project { get; }
+    IEmployeeRepository Employee { get; }
+
+    void Save();
 }

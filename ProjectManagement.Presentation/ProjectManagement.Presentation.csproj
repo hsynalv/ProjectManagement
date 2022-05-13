@@ -7,13 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Contrcats\ProjectManagement.Contracts.csproj" />
     <ProjectReference Include="..\ProjectManagement.Service.Contracts\ProjectManagement.Service.Contracts.csproj" />
-    <ProjectReference Include="..\ProjectManagement.Shared\ProjectManagement.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>

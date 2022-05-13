@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace ProjectManagement.Entities.Models;
+﻿namespace ProjectManagement.Entities.Models;
 
 public class Employee
 {
@@ -14,5 +11,4 @@ public class Employee
 
     public Guid? ProjectId { get; set; }
     public Project Project { get; set; }
-
 }

@@ -1,13 +1,13 @@
 using NLog;
 using ProjectManagement.API.Extensions;
+using ProjectManagement.Presentation;
 
 var builder = WebApplication.CreateBuilder(args);
 
-LogManager.LoadConfiguration(String.Concat(Directory.GetCurrentDirectory(),"/nlog.config"));
+LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
 
 // Add services to the container.
 
-builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -16,6 +16,12 @@ builder.Services.ConfigureLoggerManager();
 builder.Services.ConfigureSqlContext(builder.Configuration);
 builder.Services.ConfigureUnitOfWork();
 builder.Services.ConfigureServiceManager();
+builder.Services.AddAutoMapper(typeof(Program));
+
+
+builder.Services.AddControllers()
+    .AddApplicationPart(typeof(AssemblyReference).Assembly);
+
 
 var app = builder.Build();
 

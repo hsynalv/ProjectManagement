@@ -1,9 +1,10 @@
 ﻿using ProjectManagement.Entities.Models;
+using ProjectManagement.Shared.DataTransferObject;
 
-namespace ProjectManagement.Service.Contracts
+namespace ProjectManagement.Service.Contracts;
+
+public interface IProjectService
 {
-    public interface IProjectService
-    {
-        IEnumerable<Project> GetAllProject(bool trackChanges);
-    }
+    IEnumerable<ProjectDto> GetAllProject(bool trackChanges);
+    ProjectDto GetOneProjectById(Guid id, bool trackChanges);
 }
