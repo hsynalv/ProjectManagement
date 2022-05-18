@@ -17,28 +17,14 @@ public class EmployeesController : ControllerBase
     [HttpGet]
     public IActionResult GetAllEmployeesByProjectId(Guid projectId)
     {
-        try
-        {
-            var employeeList = _serviceManager.EmployeeService.GetAllEmployeesByProjectId(projectId, false);
-            return Ok(employeeList);
-        }
-        catch (Exception e)
-        {
-            return StatusCode(500, "Internal server");
-        }
+        var employeeList = _serviceManager.EmployeeService.GetAllEmployeesByProjectId(projectId, false);
+        return Ok(employeeList);
     }
 
     [HttpGet("{employeeId:guid}")]
     public IActionResult GetOneEmployeeByProjectId(Guid projectId, Guid employeeId)
     {
-        try
-        {
-            var employee = _serviceManager.EmployeeService.GetOneEmployeeById(projectId, employeeId, false);
-            return Ok(employee);
-        }
-        catch (Exception e)
-        {
-            return StatusCode(500, "Internal Server Error");
-        }
+        var employee = _serviceManager.EmployeeService.GetOneEmployeeById(projectId, employeeId, false);
+        return Ok(employee);
     }
 }

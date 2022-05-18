@@ -1,6 +1,5 @@
-﻿namespace ProjectManagement.Shared.DataTransferObject
-{
-    public record ProjectDto(Guid Id, string ProjectName, string Description, string Field);
+﻿namespace ProjectManagement.Shared.DataTransferObject;
 
-    public record EmployeeDto(Guid Id, string FirstName, String LastName, int Age, string Position);
-}
+public record ProjectDto(Guid Id, string ProjectName, string Description, string Field);
+
+public record EmployeeDto(Guid Id, string FirstName, string LastName, int Age, string Position);

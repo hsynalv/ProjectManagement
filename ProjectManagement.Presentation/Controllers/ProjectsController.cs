@@ -17,28 +17,14 @@ public class ProjectsController : ControllerBase
     [HttpGet]
     public IActionResult GetAllProjects()
     {
-        try
-        {
-            var projects = _service.ProjectService.GetAllProject(false);
-            return Ok(projects);
-        }
-        catch (Exception e)
-        {
-            return StatusCode(500, "Internal server");
-        }
+        var projects = _service.ProjectService.GetAllProject(false);
+        return Ok(projects);
     }
 
     [HttpGet("{projectId:guid}")]
     public IActionResult GetOneProjectById(Guid projectId)
     {
-        try
-        {
-            var project = _service.ProjectService.GetOneProjectById(projectId, false);
-            return Ok(project);
-        }
-        catch (Exception e)
-        {
-            return StatusCode(500, "Internal server");
-        }
+        var project = _service.ProjectService.GetOneProjectById(projectId, false);
+        return Ok(project);
     }
 }

@@ -1,5 +1,4 @@
-﻿using ProjectManagement.Entities.Models;
-using ProjectManagement.Shared.DataTransferObject;
+﻿using ProjectManagement.Shared.DataTransferObject;
 
 namespace ProjectManagement.Service.Contracts;
 

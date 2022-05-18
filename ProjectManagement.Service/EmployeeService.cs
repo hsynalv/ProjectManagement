@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using ProjectManagement.Contracts;
 using ProjectManagement.Contracts.UnitOFWork;
-using ProjectManagement.Entities.Models;
+using ProjectManagement.Entities.Exceptions;
 using ProjectManagement.Service.Contracts;
 using ProjectManagement.Shared.DataTransferObject;
 
@@ -10,8 +10,8 @@ namespace ProjectManagement.Service;
 public class EmployeeService : IEmployeeService
 {
     private readonly ILoggerManager _loggerManager;
-    private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
+    private readonly IUnitOfWork _unitOfWork;
 
     public EmployeeService(ILoggerManager loggerManager, IUnitOfWork unitOfWork, IMapper mapper)
     {
@@ -22,29 +22,24 @@ public class EmployeeService : IEmployeeService
 
     public IEnumerable<EmployeeDto> GetAllEmployeesByProjectId(Guid projectId, bool trackChanges)
     {
-        try
-        {
-            var employees = _unitOfWork.Employee.GetEmployeeListByProjectId(projectId, trackChanges);
-            return _mapper.Map<IEnumerable<EmployeeDto>>(employees);
-        }
-        catch (Exception e)
-        {
-            _loggerManager.LogError("EmployeeService.GetAllEmployeesByProjectId : " + e.Message);
-            throw;
-        }
+        CheckProjectExists(projectId);
+        var employees = _unitOfWork.Employee.GetEmployeeListByProjectId(projectId, trackChanges);
+        return _mapper.Map<IEnumerable<EmployeeDto>>(employees);
     }
 
     public EmployeeDto GetOneEmployeeById(Guid projectId, Guid employeeId, bool trackChanges)
     {
-        try
-        {
-            var employee = _unitOfWork.Employee.GetEmployeeByProjectId(projectId, employeeId, trackChanges);
-            return _mapper.Map<EmployeeDto>(employee);
-        }
-        catch (Exception e)
-        {
-            _loggerManager.LogError("EmployeeService.GetOneEmployeeById : " + e.Message);
-            throw;
-        }
+        CheckProjectExists(projectId);
+        var employee = _unitOfWork.Employee.GetEmployeeByProjectId(projectId, employeeId, trackChanges);
+        if (employee == null)
+            throw new EmployeeNotFoundException(employeeId);
+        return _mapper.Map<EmployeeDto>(employee);
+    }
+
+    private void CheckProjectExists(Guid projectId)
+    {
+        var project = _unitOfWork.Project.GetOneProjectById(projectId, false);
+        if (project == null)
+            throw new ProjectNotFoundException(projectId);
     }
 }
